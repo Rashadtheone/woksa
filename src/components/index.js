@@ -1,0 +1,6 @@
+export { default as Home } from './Home/Home'
+export { default as Characters } from './Characters/Characters'
+export { default as Navi } from './Navi/Navi'
+export { default as Universe } from './Universe/Universe'
+export { default as Books } from './Books/Books'
+export {default as About } from './About'
