@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import {SideNav, SideNavItem, Button, Icon} from 'react-materialize'
-
+import './Navi.css';
 class Navi extends Component {
     render() {
         return (
-            <div>
+            <nav>
                 <SideNav
 	trigger={<Button>
-            <Icon>dehaze</Icon>
+            Navi
             </Button>}
 	options={{ closeOnClick: true }}
 	>
@@ -27,8 +27,9 @@ class Navi extends Component {
 	<SideNavItem divider />
 	<SideNavItem subheader>Subheader</SideNavItem>
 	<SideNavItem waves href='#!third'>Third Link With Waves</SideNavItem>
-</SideNav>
-            </div>
+    </SideNav>
+    Stormlight Archives
+    </nav>
         );
     }
 }

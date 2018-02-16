@@ -1,0 +1,26 @@
+.mainContainer {
+    width: 100%;
+    max-height: 1000px;
+    border: solid; 
+    overflow: scroll;
+}
+.card {
+    width: 400px;
+    margin: auto;
+    margin-left: 5px;
+}
+.card .card-image img {
+     max-width: 100%;
+     max-height: 200px
+ }
+
+.feedcontainer {
+    display: flex;
+    flex-flow: wrap;
+    margin: auto;
+}
+
+.recommendedPost {
+    max-height: 300px;
+    overflow: scroll;
+}
