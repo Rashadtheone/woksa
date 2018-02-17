@@ -24,7 +24,7 @@ class Characters extends Component {
                 <div className="secondary-characters"> 
                 <h2>Secondary Characters</h2>
                 <Card header={<CardTitle reveal image={"img/office.jpg"} waves='light'/>}
-		              title="Khaladin & Syl"
+		              title="Adolin"
                       reveal={
                       <div>
                           <h5>Personality</h5>

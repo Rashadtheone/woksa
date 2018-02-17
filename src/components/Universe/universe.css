@@ -1,0 +1,17 @@
+
+.roshar {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.rosharPic {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: auto;;
+}
+.majorNations {
+    width: 100%;
+    
+}
