@@ -3,10 +3,30 @@ import {Parallax, Collapsible, CollapsibleItem, Row, Col,
         Modal, Button} from 'react-materialize'
 import './universe.css';
 import roshar from './images/Map_roshar.jpg'
+import UniverseItem from './UniverseItem';
 class Universe extends Component {
     state = {
-        regions: ['reg 1', 'reg 2', 'reg 3'],
-        current: 'none'
+        regions: {
+            "Alethkar": {
+                name: "Alethkar",
+                history: "Alethkar was founded as Alethela in the Silver Kingdoms Epoch. It survived the Desolations, but at an unknown point was fractured into the Princedoms.For centuries, Alethkar was divided into ten self-governed Princedoms until King Gavilar Kholin conquered and united them. He was crowned first king since Sunmaker, who cast down the Hierocracy. When King Gavilar was assassinated by the Parshendi in 1167, his son, Elhokar, became King and declared war on the Parshendi.",
+                lore: "The Alethi are native to Alethkar. They possess tan skin and pure black hair. They are a grand people with a natural nobility to them.[1] They follow the Vorin religion and are famous for their military heritage.The men are tall and well made. Lighteyes men dress in dark coats that are elaborately embroidered, looking like generals on a field.Further information: Vorin Havah Lighteyes women are even more splendid. They wear grand dresses, their bright colors a contrast to the dark tones favored by the men. The left sleeve of each dress is longer than the right, covering the left hand. For women of age, this is their safehand and it is to be covered at all times. Common darkeyed women wear a glove instead of the safepouch lighteyes women wear.Women wear their hair pinned atop their heads, either in intricate braids or in loose piles. It is often woven with ribbons or ornaments, along with gems that glow with Stormlight. The Alethi class system is based on their eye color. Lighteyes are the noble, ruling class and darkeyes are the peasant, worker class. The lighteyes are ranked by dahn and the darkeyes are further ranked by nahn. Amongst the Alethi, writing is a feminine art; men learn only glyphs, leaving letters and reading to their wives and sisters.",
+                cites: ["Kholinar", "Rathalas", "Dumadari", "Varikev", "Mourn's Vault", "Hearthstone", "Shulin", "Karanak", "Revolar", "Farcoast", "Tomat", "Dalilak", "Relanas", "Davinar",
+                "Kelathar", "Danidan", "Savalashi", "Shamel", "Darkhill", "Rashir"],
+                princedoms: ["Aladar", "Bethab", "Hatham", "Kholin", "Roion", "Ruthar","Sadeas" ,"Sebarial","Thanadal","Vamah"],
+                img: "https://vignette.wikia.nocookie.net/stormlightarchive/images/0/08/Roshar_-_Alethkar.jpg/revision/latest/scale-to-width-down/1000?cb=20121114033233"
+
+            },
+            "Jah Keved": {
+                name: "Jah Keved",
+                history: "Jah Keved is one of the five Vorin kingdoms, west of Alethkar. Its capital is Vedenar. During the Heraldic Epochs, the region was part of the former kingdom Valhav. Jah Keved, along with Alethkar, is said to possess the most Shardblades (around 20 each). They are also the only known nation to possess the Half shard, a fabrial-powered shield capable of deflecting a Shardblade.[1][2][3]",
+                lore: "Jah Keved is one of the largest kingdoms on Roshar. It is situated in the eastern half of the continent, west of Alethkar, additionally bordering Herdaz, Tu Bayla and Triax. The Reshi and Tarat seas hold it to the north and south. It has two centrally located mountain ranges: the Horneater Peaks - home to the Unkalaki (Horneaters) - and Bavland, a small mining region.",
+                cites: ["Kholinar", "Rathalas", "Dumadari", "Varikev", "Mourn's Vault", "Hearthstone", "Shulin", "Karanak", "Revolar", "Farcoast", "Tomat", "Dalilak", "Relanas", "Davinar",
+                "Kelathar", "Danidan", "Savalashi", "Shamel", "Darkhill", "Rashir"],
+                img: "https://vignette.wikia.nocookie.net/stormlightarchive/images/0/08/Roshar_-_Alethkar.jpg/revision/latest/scale-to-width-down/1000?cb=20121114033233"
+            }
+        }
+        
     }
 
     setCurrentRegion(region) {
@@ -15,6 +35,11 @@ class Universe extends Component {
     }
 
     render() {
+
+        let countryKey = Object.keys(this.state.regions)
+        countryKey.forEach(key => {
+            var region = this.state.regions[key];
+          });
         return (
             <div>
             <div className="roshar">
@@ -23,22 +48,16 @@ class Universe extends Component {
              </div>
              <Row>
                 <Col>
-                <div className='majorNations'>
-                <Modal
-                id="foo"
-	            header='Modal Header'
-	            fixedFooter
-	            trigger={<Button>MODAL WITH FIXED FOOTER</Button>}>
-                    <h1>Nation Name</h1>
-                    <p>dfiojasdjf</p>
-                </Modal>
-
-                {
-                    this.state.regions.map((r, index) => (
-                        <Button key={index} onClick={ window.$('#foo').modal('open') }>{r}</Button>
-                    ))
-                }
-                <p>{this.state.current}</p>
+                    <div className='majorNations'>
+                    {
+                        countryKey.map(key => (
+                            <UniverseItem 
+                            key={key}
+                            countryKey={key}
+                            region={this.state.regions[key]}/>
+                        ))
+                  
+                  }
                 </div>
                 </Col>
             </Row>
